@@ -233,7 +233,10 @@
 
 /* ---- Button spinner ---- */
 .consult-send .spinner{
-  display:none; width:16px; height:16px; margin-left:.6rem;
+  display:none; 
+  width:16px;
+   height:16px;
+   margin-left:.6rem;
   border-radius:50%;
   border:2px solid rgba(10,36,48,.25);
   border-top-color:#0a2430;
@@ -254,13 +257,18 @@
 .toast{
   position:fixed; inset-inline:0; top:14px; margin-inline:auto;
   width:min(92%, 720px);
-  background:#132b2f; color:#f4fbfb;
+  background:#132b2f; 
+  color:#f4fbfb;
   border:1px solid rgba(255,255,255,.12);
-  padding:.9rem 1rem; border-radius:12px;
+  padding:.9rem 1rem; 
+  border-radius:12px;
   box-shadow:0 18px 56px rgba(2,8,23,.28);
   transform:translateY(-18px);
-  opacity:0; pointer-events:none; z-index:9999;
-  text-align:center; font-weight:700;
+  opacity:0; 
+  pointer-events:none; 
+  z-index:9999;
+  text-align:center; 
+  font-weight:700;
 }
 .toast--error{ background:#4a0e14; }
 .toast--success{ background:#0f3c2e; }
@@ -316,4 +324,19 @@
 
 @media (max-width: 520px){
   .global-toast{ width: calc(100% - 24px); }
+}
+
+
+
+
+/* ===== Contact submit button layout override ===== */
+#contact .consult-send,
+.consult-send {
+  width: auto !important;          /* stop 100% width */
+  min-width: 180px;                /* nice fixed-ish size */
+  display: inline-flex;            /* shrink to content */
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-start;        /* keep it on the left in the grid */
+  align-self: flex-start;
 }

@@ -2517,3 +2517,81 @@ body.modal-open{
     margin-right: auto;
   }
 }
+
+
+
+/* === Hero image size tweak (desktop) === */
+@media (min-width: 901px) {
+  .hero-right-solar-system {
+    justify-content: flex-end;
+  }
+
+  .hero-img-solar-system {
+    width: auto;
+    max-width: 620px;   /* was ~560px – wider by ~60px */
+    max-height: 420px;
+  }
+}
+/* ===== CONTACT SECTION LAYOUT ===== */
+#contact {
+  background: var(--bg-solar);
+  padding: clamp(32px, 4vw, 56px) 0;
+}
+
+/* Keep the contact block inside the same width as other sections */
+#contact > * {
+  width: min(92vw, var(--container-w-solar));
+  margin-inline: auto;
+}
+
+/* Generic responsive form styling inside the contact section */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Make all fields full-width and prevent overflow on mobile */
+#contact input,
+#contact select,
+#contact textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+/* If your contact block has a card container, keep it nicely centred */
+#contact .contact-form-card {
+  border-radius: 18px;
+  padding: 20px 18px 22px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .16);
+}
+
+/* Desktop: allow a two-column layout if there's a wrapper for map + form */
+@media (min-width: 901px) {
+  #contact .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    column-gap: clamp(20px, 4vw, 40px);
+    align-items: flex-start;
+  }
+}
+
+/* Mobile/tablet: stack and centre the teal form card */
+@media (max-width: 900px) {
+  #contact .contact-grid {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  #contact .contact-form-card {
+    max-width: 480px;
+    margin: 0 auto 16px;
+  }
+}
+
+
