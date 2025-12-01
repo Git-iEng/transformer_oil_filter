@@ -2336,3 +2336,171 @@ body.modal-open{
   height: auto;
   border-radius: 8px;
 }
+
+
+
+/* ===== Transformer Oil hero layout & responsiveness ===== */
+
+.section-hero-solar-system {
+  /* space from fixed header + nice vertical breathing room */
+  padding: clamp(100px, 16vh, 140px) 0 80px;
+  overflow: hidden;              /* stop image overlapping next section */
+}
+
+/* Desktop / large screens */
+.grid-hero-solar-system {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  column-gap: clamp(24px, 4vw, 60px);
+  align-items: center;
+}
+
+.hero-left-solar-system {
+  max-width: 640px;
+}
+
+.hero-right-solar-system {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-img-solar-system {
+  width: 100%;
+  height: auto;
+  max-height: 420px;          /* keep height aligned with text block */
+  object-fit: cover;
+  border-radius: 24px;        /* keep your rounded look */
+}
+
+/* ===== Tablet / Mobile ===== */
+@media (max-width: 900px) {
+  .section-hero-solar-system {
+    padding: 96px 0 56px;     /* slightly tighter on small screens */
+  }
+
+  .grid-hero-solar-system {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  /* Show image on top, text below (you can remove order if you prefer text first) */
+  .hero-right-solar-system {
+    order: -1;
+    justify-content: center;
+  }
+
+  .hero-img-solar-system {
+    max-height: 320px;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .hero-left-solar-system {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .hero-cta-solar-system {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .section-hero-solar-system {
+    padding: 88px 0 48px;
+  }
+
+  .hero-img-solar-system {
+    max-height: 260px;
+  }
+}
+
+/* === HERO OVERRIDES: align image & fix responsive order === */
+
+/* Desktop / large screens */
+.section-hero-solar-system {
+  /* keep nice spacing from fixed header, but not too much */
+  padding: clamp(96px, 14vh, 120px) 0 80px;
+}
+
+/* Make text and image align from the TOP instead of centre */
+.grid-hero-solar-system {
+  align-items: flex-start;
+}
+
+.hero-right-solar-system {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.hero-img-solar-system {
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* Tablet / mobile */
+@media (max-width: 900px) {
+  .section-hero-solar-system {
+    padding: 88px 0 56px;
+  }
+
+  .grid-hero-solar-system {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  /* TEXT FIRST, IMAGE AFTER */
+  .hero-left-solar-system {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .hero-cta-solar-system {
+    justify-content: center;
+  }
+
+  .hero-right-solar-system {
+    order: 2;                /* image BELOW text */
+    justify-content: center; /* centre horizontally */
+    align-items: center;     /* centre vertically in its row */
+  }
+
+  .hero-img-solar-system {
+    max-height: 320px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .section-hero-solar-system {
+    padding: 80px 0 48px;
+  }
+
+  .hero-img-solar-system {
+    max-height: 260px;
+  }
+}
+
+/* --- Extra centering for hero image on tablet / mobile --- */
+@media (max-width: 900px) {
+  .hero-right-solar-system {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center;
+  }
+
+  .hero-img-solar-system {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
