@@ -2593,5 +2593,215 @@ body.modal-open{
     margin: 0 auto 16px;
   }
 }
+/* One-line bullets: icon | title | description (aligned) */
+.bullets-solar-system-types.bullets-inline li{
+  display: grid;
+  grid-template-columns: 18px 280px 1fr;  /* increase title width */
+  column-gap: 12px;
+  align-items: start;
+  line-height: 1.55;
+}
+
+.bullets-solar-system-types.bullets-inline i{
+  margin-top: 2px;
+}
+
+/* Keep title always in ONE line */
+.bullets-solar-system-types.bullets-inline .bullet-title{
+  font-weight: 700;
+  white-space: nowrap;        /* ✅ prevents Power generation plants splitting */
+}
+
+/* Keep the dash aligned */
+.bullets-solar-system-types.bullets-inline .bullet-desc::before{
+  content: "– ";
+  opacity: 0.75;
+}
+
+.bullets-solar-system-types.bullets-inline .bullet-desc{
+  min-width: 0;
+}
+/* Arrow style bullets: ▶ Title: description (inline) */
+.bullets-solar-system-types.bullets-arrow{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.bullets-solar-system-types.bullets-arrow li{
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+/* icon */
+.bullets-solar-system-types.bullets-arrow li i{
+  font-size: 14px;
+  margin-top: 2px;
+  flex: 0 0 auto;
+}
+
+/* title */
+.bullets-solar-system-types.bullets-arrow .bullet-title{
+  font-weight: 700;
+  white-space: nowrap;     /* keeps title in one line */
+  flex: 0 0 auto;
+}
+
+/* description */
+.bullets-solar-system-types.bullets-arrow .bullet-desc{
+  flex: 1;
+  min-width: 0;
+}
+
+/* ✅ FORCE proper wrap alignment for Applications list */
+.bullets-solar-system-types.bullets-arrow li{
+  display: grid !important;
+  grid-template-columns: 18px 1fr;  /* icon | text */
+  column-gap: 12px;
+  align-items: start;
+}
+
+.bullets-solar-system-types.bullets-arrow li i{
+  grid-column: 1;
+  margin-top: 0.25em;
+}
+
+/* Make title + desc behave like ONE sentence so wrap aligns */
+.bullets-solar-system-types.bullets-arrow li .bullet-title,
+.bullets-solar-system-types.bullets-arrow li .bullet-desc{
+  grid-column: 2;
+  display: inline;
+}
+
+/* spacing between title and description */
+.bullets-solar-system-types.bullets-arrow li .bullet-title{
+  margin-right: 6px;
+}/* ✅ Put title + description on the SAME grid row (removes the gap) */
+.bullets-solar-system-types.bullets-arrow li{
+  display: grid;
+  grid-template-columns: 20px 1fr; /* icon | text */
+  column-gap: 12px;
+  align-items: start;
+}
+
+.bullets-solar-system-types.bullets-arrow li i{
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: .2em;
+}
+
+/* Force BOTH into column 2, SAME row */
+.bullets-solar-system-types.bullets-arrow li .bullet-title{
+  grid-column: 2;
+  grid-row: 1;          /* ✅ key */
+  display: inline;
+  margin-right: 6px;
+  font-weight: 600;
+  white-space: nowrap;  /* optional */
+}
+
+.bullets-solar-system-types.bullets-arrow li .bullet-desc{
+  grid-column: 2;
+  grid-row: 1;          /* ✅ key */
+  display: inline;
+  margin: 0;
+}
+
+/* If bullet-desc is a <p>, remove default margin */
+.bullets-solar-system-types.bullets-arrow li p{
+  margin: 0 !important;
+  display: inline !important;
+}
 
 
+/* experiment */
+/* Typical Applications list (icon | title | description) */
+.apps-list{
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: grid;
+  gap: 16px;
+}
+
+.apps-list li{
+  display: grid;
+  grid-template-columns: 18px 220px 1fr; /* icon | title | desc */
+  column-gap: 18px;
+  align-items: start;
+  color: var(--muted-solar);
+  line-height: 1.7;
+}
+
+.apps-list li i{
+  margin-top: .2em;
+  color: var(--teal-700-solar);
+}
+
+/* ✅ keep the title in ONE line (no breaking into 2 lines) */
+.apps-title{
+  white-space: nowrap;
+}
+
+.apps-title strong{
+  font-weight: 800;
+  color: inherit;
+}
+
+/* allow description to wrap normally */
+.apps-desc{
+  min-width: 0;
+}
+
+/* Mobile: stack nicely */
+@media (max-width: 768px){
+  .apps-list li{
+    grid-template-columns: 18px 1fr;
+  }
+  .apps-title{
+    grid-column: 2;
+    white-space: normal; /* allow wrap on small screens */
+  }
+  .apps-desc{
+    grid-column: 2;
+  }
+}
+
+.apps-two-col{
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+
+.apps-two-col li{
+  display: grid;
+  grid-template-columns: 18px 260px 1fr; /* icon | label | description */
+  column-gap: 18px;
+  align-items: start;
+  margin: 0 0 16px 0;
+}
+
+.apps-two-col li i{
+  margin-top: .25em;
+}
+
+.apps-two-col .apps-left{
+  white-space: nowrap;
+}
+
+.apps-two-col .apps-right{
+  min-width: 0;
+}
+
+@media (max-width: 768px){
+  .apps-two-col li{
+    grid-template-columns: 18px 1fr;
+  }
+  .apps-two-col .apps-left,
+  .apps-two-col .apps-right{
+    grid-column: 2;
+    white-space: normal;
+  }
+}
