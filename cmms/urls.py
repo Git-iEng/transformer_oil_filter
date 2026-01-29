@@ -25,8 +25,7 @@ urlpatterns = [
     # include the app with namespace so names like 'cmmsApp:request_demo' work
     path("", include(("cmmsApp.urls", "cmmsApp"), namespace="cmmsApp")),
      # serve a static sitemap file from templates
-    path(
-        "sitemap.xml",
+    path("sitemap.xml",
         TemplateView.as_view(template_name="sitemap.xml", content_type="application/xml"),
         name="sitemap"
     ),
